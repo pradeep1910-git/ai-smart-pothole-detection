@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Smart Pothole Detection</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="logo">
+            🕳️ Smart Pothole Detection
+        </div>
+
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#about">About</a></li>
+        </ul>
+    </nav>
+
+
+    <!-- Main Section -->
+    <section class="hero">
+
+        <div class="card">
+
+            <h1>🛣️ Smart Pothole Detection</h1>
+
+            <p>
+                AI-powered road damage detection using YOLO
+            </p>
+
+            <p>
+                Upload a road video and let our AI detect potholes automatically.
+            </p>
+
+
+            <!-- Upload Form -->
+            <form action="/detect" method="POST" enctype="multipart/form-data">
+
+                <input
+                    type="file"
+                    name="video"
+                    accept="video/*"
+                    required
+                >
+
+                <br>
+
+                <button type="submit">
+                    🔍 Detect Potholes
+                </button>
+
+            </form>
+
+
+            <!-- Features -->
+            <div class="features" id="features">
+
+                <div class="box">
+                    <h3>🤖 AI Detection</h3>
+                    <p>
+                        YOLO-based artificial intelligence detects potholes
+                        automatically.
+                    </p>
+                </div>
+
+                <div class="box">
+                    <h3>⚡ Fast Processing</h3>
+                    <p>
+                        Analyze road videos and generate detection results quickly.
+                    </p>
+                </div>
+
+                <div class="box">
+                    <h3>🎯 Confidence</h3>
+                    <p>
+                        View the confidence level of detected potholes.
+                    </p>
+                </div>
+
+                <div class="box">
+                    <h3>📹 Video Result</h3>
+                    <p>
+                        Watch the processed video with potholes highlighted.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <!-- About -->
+            <div id="about" style="margin-top: 40px;">
+
+                <h2>About the Project</h2>
+
+                <p style="margin-top: 10px;">
+                    Smart Pothole Detection is an AI-based road monitoring
+                    system designed to identify potholes from road videos.
+                    The system uses a trained YOLO model to detect road damage
+                    and display the processed result.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Footer -->
+    <footer>
+
+        <p>
+            Smart Pothole Detection System
+        </p>
+
+        <p>
+            Developed by Pradeep
+        </p>
+
+        <p>
+            B.Tech Electronics and Computer Engineering
+        </p>
+
+    </footer>
+
+
+</body>
+</html>

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Pothole Detection Result</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">
+            🕳️ Smart Pothole Detection
+        </div>
+
+        <ul>
+            <li>
+                <a href="/">Home</a>
+            </li>
+
+            <li>
+                <a href="/">Upload</a>
+            </li>
+        </ul>
+    </nav>
+
+
+    <!-- Result Section -->
+    <section class="hero">
+
+        <div class="card">
+
+            <h1>🛣️ Detection Result</h1>
+
+            <p>
+                YOLO AI has successfully processed your road video.
+            </p>
+
+
+            <!-- Pothole Count -->
+            <div class="result-box">
+
+                <h2>Total Potholes Detected</h2>
+
+                <div class="count">
+                    {{ count }}
+                </div>
+
+            </div>
+
+
+            <!-- Processed Video -->
+            <h2 style="margin-top: 30px;">
+                🎥 Processed Road Video
+            </h2>
+
+            <video
+                controls
+                width="90%"
+                style="margin-top:20px; border-radius:15px;"
+            >
+
+                <source
+                    src="{{ url_for('results', filename=video) }}"
+                    type="video/mp4"
+                >
+
+                Your browser does not support video playback.
+
+            </video>
+
+
+            <!-- Detection Information -->
+            <div class="result-box">
+
+                <h2>🔍 Detection Details</h2>
+
+                {% if detections %}
+
+                    {% for detection in detections %}
+
+                        <p>
+                            Pothole {{ loop.index }}
+                            —
+                            Confidence:
+                            <strong>
+                                {{ detection.confidence }}%
+                            </strong>
+                        </p>
+
+                    {% endfor %}
+
+                {% else %}
+
+                    <p>No individual detection information available.</p>
+
+                {% endif %}
+
+            </div>
+
+
+            <!-- Buttons -->
+            <div style="margin-top:30px;">
+
+                <a
+                    href="{{ url_for('results', filename=video) }}"
+                    download
+                    class="download-button"
+                >
+                    ⬇️ Download Processed Video
+                </a>
+
+                <br><br>
+
+                <a
+                    href="/"
+                    class="download-button"
+                >
+                    🔄 Upload Another Video
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Footer -->
+    <footer>
+
+        <p>Smart Pothole Detection System</p>
+
+        <p>
+            Developed by Pradeep
+        </p>
+
+        <p>
+            B.Tech Electronics and Computer Engineering
+        </p>
+
+    </footer>
+
+</body>
+
+</html>
